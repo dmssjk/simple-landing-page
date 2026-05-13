@@ -467,6 +467,126 @@
     color: rgba(253,246,240,0.65);
   }
 
+  /* ─── FÉ ─── */
+  .fe-section { padding: 80px 20px; }
+  .fe-inner { max-width: 1000px; margin: 0 auto; }
+
+  .fe-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .fe-card {
+    background: rgba(26,10,16,0.8);
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .fe-card:hover { background: rgba(40,20,10,0.9); }
+
+  .fe-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .fe-card:hover::before { transform: scaleX(1); }
+
+  .fe-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+
+  .fe-label {
+    font-size: 0.78rem;
+    color: rgba(253,246,240,0.5);
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .fe-emoji {
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .verses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .verse-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 14px;
+    padding: 20px 22px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .verse-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    background: rgba(201,168,76,0.05);
+  }
+
+  .verse-ref {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .verse-who {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(253,246,240,0.35);
+    margin-bottom: 8px;
+  }
+
+  .verse-text {
+    font-size: 0.88rem;
+    color: rgba(253,246,240,0.65);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .fe-callout {
+    background: linear-gradient(135deg, rgba(40,20,5,0.8), rgba(201,168,76,0.1));
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  .fe-callout-big {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: var(--gold);
+    display: block;
+    margin-bottom: 10px;
+  }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 540px) {
     .emoji-columns { grid-template-columns: 1fr; }
@@ -612,6 +732,97 @@
         <div class="love-fill daniel" style="width:0%" data-width="65%"></div>
       </div>
       <div class="love-person"><strong>Brenda</strong>47×</div>
+    </div>
+  </div>
+</div>
+
+<!-- FÉ -->
+<div class="fe-section">
+  <div class="fe-inner">
+    <p class="section-label">Uma história com Deus no centro</p>
+    <h2 class="section-title">Fé compartilhada</h2>
+    <div class="divider" style="background: var(--gold);"></div>
+
+    <div class="fe-stats">
+      <div class="fe-card">
+        <span class="fe-emoji" aria-hidden="true">🙏</span>
+        <span class="fe-number" data-target="883">0</span>
+        <span class="fe-label">Vezes que falaram "Deus"</span>
+      </div>
+      <div class="fe-card">
+        <span class="fe-emoji" aria-hidden="true">🕊️</span>
+        <span class="fe-number" data-target="516">0</span>
+        <span class="fe-label">Amém ditos</span>
+      </div>
+      <div class="fe-card">
+        <span class="fe-emoji" aria-hidden="true">💛</span>
+        <span class="fe-number" data-target="379">0</span>
+        <span class="fe-label">Mensagens sobre oração</span>
+      </div>
+      <div class="fe-card">
+        <span class="fe-emoji" aria-hidden="true">📖</span>
+        <span class="fe-number" data-target="24">0</span>
+        <span class="fe-label">Versículos compartilhados</span>
+      </div>
+      <div class="fe-card">
+        <span class="fe-emoji" aria-hidden="true">✨</span>
+        <span class="fe-number" data-target="17">0</span>
+        <span class="fe-label">Vezes que pediram bênção</span>
+      </div>
+    </div>
+
+    <p class="section-label" style="margin-bottom: 8px;">Os versículos de vocês</p>
+    <h3 class="section-title" style="font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 0;">Palavra que fortalece</h3>
+
+    <div class="verses-grid">
+      <div class="verse-card">
+        <div class="verse-ref">Filipenses 4:6-7</div>
+        <div class="verse-who">Brenda · 30 jul 2025</div>
+        <div class="verse-text">"Não andem ansiosos por coisa alguma, mas em tudo, pela oração e súplicas, com ação de graças, apresentem seus pedidos a Deus."</div>
+      </div>
+      <div class="verse-card">
+        <div class="verse-ref">1 Coríntios 13:4-7</div>
+        <div class="verse-who">Brenda & Daniel · 21-22 jul 2025</div>
+        <div class="verse-text">"O amor é paciente, o amor é bondoso... tudo sofre, tudo crê, tudo espera, tudo suporta." ❤️</div>
+      </div>
+      <div class="verse-card">
+        <div class="verse-ref">Provérbios 17:17</div>
+        <div class="verse-who">Daniel · 29 mai 2025</div>
+        <div class="verse-text">"Em todo o tempo ama o amigo; e na angústia nasce o irmão." — "li e lembrei de vc"</div>
+      </div>
+      <div class="verse-card">
+        <div class="verse-ref">Provérbios 16:3</div>
+        <div class="verse-who">Daniel · 06 ago 2025</div>
+        <div class="verse-text">"Confia ao Senhor as tuas obras, e os teus desígnios serão estabelecidos."</div>
+      </div>
+      <div class="verse-card">
+        <div class="verse-ref">Isaías 41:10</div>
+        <div class="verse-who">Compartilhado</div>
+        <div class="verse-text">"Não temas, porque eu sou contigo; não te assombres, porque eu sou teu Deus."</div>
+      </div>
+      <div class="verse-card">
+        <div class="verse-ref">Romanos 12:12</div>
+        <div class="verse-who">Daniel · 22 jun 2025</div>
+        <div class="verse-text">"Alegrai-vos na esperança, sede pacientes na tribulação, perseverai na oração."</div>
+      </div>
+      <div class="verse-card">
+        <div class="verse-ref">Mateus 18:19</div>
+        <div class="verse-who">Daniel · 25 jun 2025</div>
+        <div class="verse-text">"Se dois de vós concordarem na terra acerca de qualquer coisa que pedirem, isso lhes será feito por meu Pai."</div>
+      </div>
+      <div class="verse-card">
+        <div class="verse-ref">Efésios 5:25</div>
+        <div class="verse-who">Compartilhado</div>
+        <div class="verse-text">"Maridos, amai vossas mulheres, como também Cristo amou a igreja e a si mesmo se entregou por ela."</div>
+      </div>
+    </div>
+
+    <div class="fe-callout">
+      <span class="fe-callout-big">"Deus no centro de tudo"</span>
+      <p class="callout-text">
+        Daniel falou "Deus" <strong style="color:var(--gold)">487×</strong> · Brenda falou <strong style="color:var(--gold)">366×</strong><br>
+        Daniel disse "amém" <strong style="color:var(--gold)">213×</strong> · Brenda disse <strong style="color:var(--gold)">261×</strong>
+      </p>
     </div>
   </div>
 </div>
