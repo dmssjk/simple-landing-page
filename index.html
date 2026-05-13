@@ -134,14 +134,18 @@
     position: absolute;
     bottom: 30px;
     left: 50%;
-    transform: translateX(-50%);
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 6px;
     opacity: 0;
-    animation: fadeUp 1s 2s forwards;
+    animation: fadeUpHint 1s 2s forwards;
+  }
+
+  @keyframes fadeUpHint {
+    from { opacity: 0; transform: translateX(-50%) translateY(30px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
   }
 
   .scroll-hint span {
@@ -420,7 +424,7 @@
   .galeria-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 320px 320px;
+    grid-template-rows: 440px 440px;
     gap: 12px;
     margin-top: 40px;
   }
@@ -430,32 +434,41 @@
     overflow: hidden;
     border-radius: 16px;
     cursor: pointer;
-    background: rgba(255,255,255,0.04);
+    background: #0d0508;
   }
 
-  .galeria-item:first-child {
-    grid-row: span 2;
+  .galeria-bg {
+    position: absolute;
+    inset: -20px;
+    background-size: cover;
+    background-position: center;
+    filter: blur(18px) brightness(0.35) saturate(1.4);
+    z-index: 0;
+    transform: scale(1.1);
   }
 
   .galeria-item img {
+    position: relative;
+    z-index: 1;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     transition: transform 0.5s ease;
   }
 
-  .galeria-item:hover img { transform: scale(1.06); }
+  .galeria-item:hover img { transform: scale(1.04); }
 
   .galeria-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(26,10,16,0.85) 0%, transparent 50%);
+    background: linear-gradient(to top, rgba(26,10,16,0.85) 0%, transparent 55%);
     opacity: 0;
     transition: opacity 0.3s;
     display: flex;
     align-items: flex-end;
     padding: 20px;
+    z-index: 2;
   }
 
   .galeria-item:hover .galeria-overlay { opacity: 1; }
@@ -491,6 +504,7 @@
     opacity: 0;
     transform: scale(0.7);
     transition: opacity 0.3s, transform 0.3s;
+    z-index: 3;
   }
 
   .galeria-item:hover .galeria-zoom-icon {
@@ -601,9 +615,8 @@
   @media (max-width: 600px) {
     .galeria-grid {
       grid-template-columns: 1fr;
-      grid-template-rows: repeat(4, 260px);
+      grid-template-rows: repeat(4, 300px);
     }
-    .galeria-item:first-child { grid-row: span 1; }
   }
 
   /* ─── COMIDA ─── */
@@ -1126,6 +1139,7 @@
 
     <div class="galeria-grid">
       <div class="galeria-item" data-index="0">
+        <div class="galeria-bg" style="background-image:url('fotos/foto1.jpg')"></div>
         <img src="fotos/foto1.jpg" alt="Daniel e Brenda em casa" loading="lazy">
         <div class="galeria-zoom-icon">🔍</div>
         <div class="galeria-overlay">
@@ -1133,20 +1147,23 @@
         </div>
       </div>
       <div class="galeria-item" data-index="1">
-        <img src="fotos/foto2.jpg" alt="Daniel e Brenda se beijando" loading="lazy">
-        <div class="galeria-zoom-icon">🔍</div>
-        <div class="galeria-overlay">
-          <div class="galeria-caption">Esse beijo<small>Registrado pra sempre</small></div>
-        </div>
-      </div>
-      <div class="galeria-item" data-index="2">
+        <div class="galeria-bg" style="background-image:url('fotos/foto3.jpg')"></div>
         <img src="fotos/foto3.jpg" alt="Daniel e Brenda na festa" loading="lazy">
         <div class="galeria-zoom-icon">🔍</div>
         <div class="galeria-overlay">
           <div class="galeria-caption">Risadas na festa<small>Sob as estrelas</small></div>
         </div>
       </div>
+      <div class="galeria-item" data-index="2">
+        <div class="galeria-bg" style="background-image:url('fotos/foto2.jpg')"></div>
+        <img src="fotos/foto2.jpg" alt="Daniel e Brenda se beijando" loading="lazy">
+        <div class="galeria-zoom-icon">🔍</div>
+        <div class="galeria-overlay">
+          <div class="galeria-caption">Esse beijo<small>Registrado pra sempre</small></div>
+        </div>
+      </div>
       <div class="galeria-item" data-index="3">
+        <div class="galeria-bg" style="background-image:url('fotos/foto4.jpg')"></div>
         <img src="fotos/foto4.jpg" alt="Daniel e Brenda no jardim iluminado" loading="lazy">
         <div class="galeria-zoom-icon">🔍</div>
         <div class="galeria-overlay">
@@ -1302,15 +1319,15 @@
   <p style="font-family: 'Nunito'; font-size: 0.95rem; color: rgba(253,246,240,0.55); font-style: normal; margin-bottom: 24px;">
     Daniel chamou Brenda assim <strong style="color:var(--rose)">123 vezes</strong>. Brenda chamou Daniel assim <strong style="color:var(--rose)">38 vezes</strong>. 🥰
   </p>
-  <small>Feito com 💕 a partir de 37.152 mensagens • Daniel & Brenda</small>
+  <small>te amo</small>
 </footer>
 
 <script>
   // ── Lightbox ──
   const lbPhotos = [
     { src: 'fotos/foto1.jpg', caption: 'De mãos dadas' },
-    { src: 'fotos/foto2.jpg', caption: 'Esse beijo' },
     { src: 'fotos/foto3.jpg', caption: 'Risadas na festa' },
+    { src: 'fotos/foto2.jpg', caption: 'Esse beijo' },
     { src: 'fotos/foto4.jpg', caption: 'Iluminados pelo amor' },
   ];
 
